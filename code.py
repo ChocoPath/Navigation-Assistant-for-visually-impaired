@@ -159,7 +159,6 @@ def objectdetection(obj):
 	# do a bit of cleanup
 	cv2.destroyAllWindows()
 	vs.release()
-objectdetection("cat")
 
 
 duration = 0.5
