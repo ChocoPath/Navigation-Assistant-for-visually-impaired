@@ -162,82 +162,82 @@ def objectdetection(obj):
 objectdetection("cat")
 
 
-# duration = 0.5
-# freq = 440
-# engine = pyttsx3.init()
-# engine.setProperty('rate', 150)
-# #engine.setProperty('voice', 'english+f1')
-# def beep() :
-# 	os.system('play --no-show-progress --null --channels 1 synth %s sine %f' % (duration, freq))
+duration = 0.5
+freq = 440
+engine = pyttsx3.init()
+engine.setProperty('rate', 150)
+#engine.setProperty('voice', 'english+f1')
+def beep() :
+	os.system('play --no-show-progress --null --channels 1 synth %s sine %f' % (duration, freq))
 	
 
-# # Speech to Text conversion using google API
-# engine.say("Welcome to the Navigation assistant. Speak help me to activate")
-# engine.runAndWait()
-# r = sr.Recognizer()
-# with sr.Microphone() as source:
-# 	wakeup = False
-# 	r.adjust_for_ambient_noise(source)
-# 	wakeString = r.listen(source)
-# 	wakeStringFinal = ""
-# 	try:
-# 		wakeStringFinal = r.recognize_google(wakeString)
-# 	except:
-# 		wakeStringFinal= "help me"
-# 	if wakeStringFinal == "help me" :
-# 		count = 0
-# 		wakeup = True
-# 		while count<5 and wakeup == True:
-# 			engine.say("activated")
-# 			engine.runAndWait()
-# 			engine.say('what do you want to find?')
-# 			engine.runAndWait()
-# 			audio = r.listen(source)
-# 			try:
-# 				query = r.recognize_google(audio)
-# 				print(query)
-# 				if query == "bye":
-# 					wakeup = False
-# 					engine.say("bye")
-# 					engine.runAndWait()
-# 					break
-# 				l= query.split()
-# 				print 
-# 				k = l[0]
-# 				secondArg = l[1]				
-# 				print (k)
-# 				print (secondArg)
-# 				if (k=="find"):
-# 					print("you are finding something")
-# 					print(secondArg)
-# 					engine.say("searching for")
-# 					engine.runAndWait()
-# 					engine.say(secondArg)
-# 					engine.runAndWait()
-# 					found = False
-# 					found,deg,dir=objectdetection(secondArg)
-# 					# Text to Speech conversion for output using speech
-# 					if found== True:
-# 						print("object found")
-# 						direction = "ahead"
-# 						if dir ==-1:
-# 							direction = "left"
-# 						elif dir ==1:
-# 							direction = "right"
-# 						st=str(secondArg)+" found at "+str(int(deg))+" Degree "+str(direction)
-# 						print(st)
-# 						engine.say(st)
+# Speech to Text conversion using google API
+engine.say("Welcome to the Navigation assistant. Speak help me to activate")
+engine.runAndWait()
+r = sr.Recognizer()
+with sr.Microphone() as source:
+	wakeup = False
+	r.adjust_for_ambient_noise(source)
+	wakeString = r.listen(source)
+	wakeStringFinal = ""
+	try:
+		wakeStringFinal = r.recognize_google(wakeString)
+	except:
+		wakeStringFinal= "help me"
+	if wakeStringFinal == "help me" :
+		count = 0
+		wakeup = True
+		while count<5 and wakeup == True:
+			engine.say("activated")
+			engine.runAndWait()
+			engine.say('what do you want to find?')
+			engine.runAndWait()
+			audio = r.listen(source)
+			try:
+				query = r.recognize_google(audio)
+				print(query)
+				if query == "bye":
+					wakeup = False
+					engine.say("bye")
+					engine.runAndWait()
+					break
+				l= query.split()
+				print 
+				k = l[0]
+				secondArg = l[1]				
+				print (k)
+				print (secondArg)
+				if (k=="find"):
+					print("you are finding something")
+					print(secondArg)
+					engine.say("searching for")
+					engine.runAndWait()
+					engine.say(secondArg)
+					engine.runAndWait()
+					found = False
+					found,deg,dir=objectdetection(secondArg)
+					# Text to Speech conversion for output using speech
+					if found== True:
+						print("object found")
+						direction = "ahead"
+						if dir ==-1:
+							direction = "left"
+						elif dir ==1:
+							direction = "right"
+						st=str(secondArg)+" found at "+str(int(deg))+" Degree "+str(direction)
+						print(st)
+						engine.say(st)
 
-# 						engine.runAndWait()
-# 						wakeup = False
-# 					else :
-# 						print("could not find try again")
-# 						time.sleep(1)
-# 						engine.say("Could not find try again")
-# 						engine.runAndWait()
-# 						count+=1
-# 			except:
-# 				time.sleep(3)
-# 				count +=1
+						engine.runAndWait()
+						wakeup = False
+					else :
+						print("could not find try again")
+						time.sleep(1)
+						engine.say("Could not find try again")
+						engine.runAndWait()
+						count+=1
+			except:
+				time.sleep(3)
+				count +=1
 
 
